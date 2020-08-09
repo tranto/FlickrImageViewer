@@ -18,4 +18,8 @@ extension String {
 		let formatString = NSLocalizedString(self, comment: "")
 		return String(format: formatString, arguments: arguments)
 	}
+	
+	var formatURL: String {
+		return self.replacingOccurrences(of: "#()", with: "//")
+	}
  }

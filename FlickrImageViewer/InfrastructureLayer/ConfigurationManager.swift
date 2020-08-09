@@ -7,3 +7,30 @@
 //
 
 import Foundation
+
+protocol ConfigurationManagerProtocol {
+	var apiKey: String { get }
+	var baseURL: String { get }
+	var flickrServicePath: String { get }
+}
+
+class ConfigurationManager: ConfigurationManagerProtocol {
+	
+	var apiKey: String {
+		return privateBundle.infoDictionary?["Flickr API key"] as? String ?? ""
+	}
+	
+	var flickrServicePath: String {
+		return privateBundle.infoDictionary?["Flickr URL path"] as? String ?? ""
+	}
+	
+	var baseURL: String {
+		return (privateBundle.infoDictionary?["Base URL"] as? String)?.formatURL ?? ""
+	}
+	
+	private var privateBundle: Bundle
+	
+	init(bundle: Bundle = Bundle.main) {
+		privateBundle = bundle
+	}
+}
