@@ -10,3 +10,4 @@
 "Latitude: %@ \nLongtitude: %@" = "Vi do: %@ \nKinh do: %@";
 "Invalid base url: %@" = "Invalid base url: %@";
 "Cannot encode object to dict" = "Cannot encode object to dict";
+"Cannot create url" = "Cannot create url";

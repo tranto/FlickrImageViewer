@@ -37,6 +37,7 @@
 		9AB464E724DFD02700256969 /* JsonParserableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB464E624DFD02700256969 /* JsonParserableTests.swift */; };
 		9AB464E924DFD37800256969 /* RequestFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB464E824DFD37800256969 /* RequestFactoryTests.swift */; };
 		9AB464EB24DFE29C00256969 /* MockConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB464EA24DFE29C00256969 /* MockConfigurationManager.swift */; };
+		9AB464EE24E0169800256969 /* PhotoManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB464ED24E0169800256969 /* PhotoManagerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		9AB464E624DFD02700256969 /* JsonParserableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParserableTests.swift; sourceTree = "<group>"; };
 		9AB464E824DFD37800256969 /* RequestFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactoryTests.swift; sourceTree = "<group>"; };
 		9AB464EA24DFE29C00256969 /* MockConfigurationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConfigurationManager.swift; sourceTree = "<group>"; };
+		9AB464ED24E0169800256969 /* PhotoManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManagerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 				9A3CC64B24DFA1DB0084F2F3 /* ConfigurationManagerTests.swift */,
 				9AB464E624DFD02700256969 /* JsonParserableTests.swift */,
 				9AB464E824DFD37800256969 /* RequestFactoryTests.swift */,
+				9AB464ED24E0169800256969 /* PhotoManagerTests.swift */,
 			);
 			path = FlickrImageViewerTests;
 			sourceTree = "<group>";
@@ -410,6 +413,7 @@
 			files = (
 				9A3CC64C24DFA1DB0084F2F3 /* ConfigurationManagerTests.swift in Sources */,
 				9AB464EB24DFE29C00256969 /* MockConfigurationManager.swift in Sources */,
+				9AB464EE24E0169800256969 /* PhotoManagerTests.swift in Sources */,
 				9AB464E724DFD02700256969 /* JsonParserableTests.swift in Sources */,
 				9AB464E924DFD37800256969 /* RequestFactoryTests.swift in Sources */,
 				9A3CC60624DEDD9C0084F2F3 /* XCTest+Extensions.swift in Sources */,
