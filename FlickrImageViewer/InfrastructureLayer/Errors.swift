@@ -8,10 +8,14 @@
 
 import Foundation
 
-enum LocationError: Error {
-	case notFound(description: String)
+enum InfrastructureError: Error {
+	case parsing(description: String)
+	case locationNotFound(description: String)
+	case client(description: String)
+	case server(description: String)
+	case invalidRequest(description: String)
 }
 
-enum ParserError: Error {
-	case cannotParse
+enum UserInterfaceError: Error {
+	case cannotDisplay(description: String)
 }
