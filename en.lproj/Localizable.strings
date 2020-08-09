@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  FlickrImageViewer
+
+  Created by Tran To on 9/8/20.
+  Copyright © 2020 Tran To. All rights reserved.
+*/
+"Gallery" = "Gallery";
+"Not Found Location" = "Not Found Location";
+"Latitude: %@ \nLongtitude: %@" = "Lat: %@ \nLong: %@";
+"Invalid base url: %@" = "Invalid base url: %@";
+"Cannot encode object to dict" = "Cannot encode object to dict";

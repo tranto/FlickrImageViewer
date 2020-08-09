@@ -9,5 +9,9 @@
 import Foundation
 
 enum LocationError: Error {
-  case notFound(description: String)
+	case notFound(description: String)
+}
+
+enum ParserError: Error {
+	case cannotParse
 }

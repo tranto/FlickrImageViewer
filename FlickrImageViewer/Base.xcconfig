@@ -1,0 +1,18 @@
+//
+//  Base.xcconfig
+//  FlickrImageViewer
+//
+//  Created by Tran To on 9/8/20.
+//  Copyright © 2020 Tran To. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+APP_NAME = FlickrImageViewer
+
+BASE_URL = http:#()www.flickr.com
+
+FLICKR_URL_PATH = /services/rest
+
+FLICKR_API_KEY = d146ca8900c70a658e103863077cf4c3
