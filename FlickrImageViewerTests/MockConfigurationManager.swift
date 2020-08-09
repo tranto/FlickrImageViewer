@@ -11,7 +11,9 @@ import Foundation
 
 class MockConfigurationManager: ConfigurationManagerProtocol {
 	
-	init() {
+	private var base: String = ""
+	init(base: String = "") {
+		self.base = base
 	}
 	
 	var apiKey: String {
@@ -19,10 +21,10 @@ class MockConfigurationManager: ConfigurationManagerProtocol {
 	}
 	
 	var baseURL: String {
-		return "https://google.com"
+		return base
 	}
 	
 	var flickrServicePath: String {
-		return "search"
+		return "/search"
 	}
 }
