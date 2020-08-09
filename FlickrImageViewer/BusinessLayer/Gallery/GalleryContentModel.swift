@@ -13,14 +13,14 @@ struct GalleryContentModel {
 	private let currentLocation: Location
 	
 	var location: String {
-		return "Latitute = \(currentLocation.lat) \nLongtitude = \(currentLocation.lon)"
-	 }
+		return "Latitude: %@ \nLongtitude: %@".localized(arguments: String(currentLocation.lat), String(currentLocation.lon))
+	}
 	
 	var screenTitle: String {
-		return "Gallery 🏷"
+		return "Gallery".localized + " 🏷"
 	}
 	
 	init(item: Location = Location(lon: 0, lat: 0)) {
-	   self.currentLocation = item
+		self.currentLocation = item
 	}
 }

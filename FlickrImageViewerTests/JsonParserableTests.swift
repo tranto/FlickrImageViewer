@@ -7,27 +7,34 @@
 //
 
 import XCTest
+@testable import FlickrImageViewer
 
 class JsonParserableTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+	func testCommonAPIParamsToDict() throws {
+		let commonPayload = CommonAPIParams(method: "abc", apiKey: "avc")
+		let result = try commonPayload.dictValue()
+		XCTAssertEqual(result["api_key"] as! String, "avc")
+		XCTAssertEqual(result["method"] as! String, "abc")
+		XCTAssertEqual(result["format"] as! String, "json")
+		XCTAssertEqual(result["nojsoncallback"] as! Int, 1)
+	}
+	
+	func testSearchPhotoPayloadToDict() throws {
+		let searchPayload = SearchPhotoPayload(perPage: 100, radiusUnits: "km", lat: "43", lon: "900", tags: "abc", sort: "date-posted-desc", contentType: 7, tagMode: "all")
+		let result = try searchPayload.dictValue()
+		XCTAssertEqual(result["per_page"] as! Int, 100)
+		XCTAssertEqual(result["radius_units"] as! String, "km")
+		XCTAssertEqual(result["sort"] as! String, "date-posted-desc")
+	}
+	
+	func testSearchPhotoPayloadWithNilValuesToDict() throws {
+		let searchPayload = SearchPhotoPayload(perPage: nil, radiusUnits: "km", lat: "678", lon: "900", tags: "abc", sort: "date-posted-desc", contentType: nil, tagMode: nil)
+		let result = try searchPayload.dictValue()
+		XCTAssertNil(result["per_page"], "Per page is not nil")
+		XCTAssertEqual(result["radius_units"] as! String, "km")
+		XCTAssertEqual(result["sort"] as! String, "date-posted-desc")
+		XCTAssertNil(result["content_type"], "Content type is not nil")
+	}
 
 }
