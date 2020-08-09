@@ -10,7 +10,7 @@ import CoreLocation
 import Combine
 
 protocol LocationFetchable {
-	var currentLocation: AnyPublisher<Location, LocationError> { get }
+	var currentLocation: AnyPublisher<Location, InfrastructureError> { get }
 	func enable()
 	func disable()
 }
@@ -18,14 +18,14 @@ protocol LocationFetchable {
 class LocationFetcher: NSObject, LocationFetchable {
 	
 	private var locationManager: LocationManagerProtocol
-	private let locationPublisher: PassthroughSubject<Location, LocationError>
-	var currentLocation: AnyPublisher<Location, LocationError>
+	private let locationPublisher: PassthroughSubject<Location, InfrastructureError>
+	var currentLocation: AnyPublisher<Location, InfrastructureError>
 	
 	init(locationMgr: LocationManagerProtocol = CLLocationManager()) {
 		locationManager = locationMgr
 		locationManager.requestAlwaysAuthorization()
 		locationManager.startUpdatingLocation()
-		locationPublisher = PassthroughSubject<Location, LocationError>()
+		locationPublisher = PassthroughSubject<Location, InfrastructureError>()
 		currentLocation = locationPublisher.eraseToAnyPublisher()
 		super.init()
 		locationManager.delegate = self
@@ -44,7 +44,7 @@ extension LocationFetcher: CLLocationManagerDelegate {
 	
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		guard let location = manager.location else {
-			locationPublisher.send(completion: Subscribers.Completion.failure(LocationError.notFound(description: "Not Found Location")))
+			locationPublisher.send(completion: Subscribers.Completion.failure(InfrastructureError.locationNotFound(description: "Not Found Location".localized)))
 			return
 		}
 		let long = location.coordinate.longitude
