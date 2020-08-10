@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A3CC5FA24DEA0A30084F2F3 /* GalleryContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3CC5F924DEA0A30084F2F3 /* GalleryContentModel.swift */; };
 		9A3CC5FE24DECD580084F2F3 /* LocationManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3CC5FD24DECD580084F2F3 /* LocationManagerProtocol.swift */; };
 		9A3CC60024DECEEE0084F2F3 /* MockLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3CC5FF24DECEEE0084F2F3 /* MockLocationManager.swift */; };
 		9A3CC60224DED0220084F2F3 /* LocationFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3CC60124DED0220084F2F3 /* LocationFetcherTests.swift */; };
@@ -60,7 +59,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9A3CC5F924DEA0A30084F2F3 /* GalleryContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryContentModel.swift; sourceTree = "<group>"; };
 		9A3CC5FD24DECD580084F2F3 /* LocationManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerProtocol.swift; sourceTree = "<group>"; };
 		9A3CC5FF24DECEEE0084F2F3 /* MockLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationManager.swift; sourceTree = "<group>"; };
 		9A3CC60124DED0220084F2F3 /* LocationFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcherTests.swift; sourceTree = "<group>"; };
@@ -235,7 +233,6 @@
 			children = (
 				9A55741624DE889400853A5F /* GalleryView.swift */,
 				9A55741824DE88FD00853A5F /* GalleryViewModel.swift */,
-				9A3CC5F924DEA0A30084F2F3 /* GalleryContentModel.swift */,
 			);
 			path = Gallery;
 			sourceTree = "<group>";
@@ -412,7 +409,6 @@
 				9A3CC63024DF84270084F2F3 /* String+Extensions.swift in Sources */,
 				9A3CC63224DF94D50084F2F3 /* Parser.swift in Sources */,
 				9AB464E324DFC66500256969 /* CommonPayload.swift in Sources */,
-				9A3CC5FA24DEA0A30084F2F3 /* GalleryContentModel.swift in Sources */,
 				9A5573E424DE86EB00853A5F /* AppDelegate.swift in Sources */,
 				9A55741924DE88FD00853A5F /* GalleryViewModel.swift in Sources */,
 				9A55741B24DE8A0B00853A5F /* LocationFetcher.swift in Sources */,

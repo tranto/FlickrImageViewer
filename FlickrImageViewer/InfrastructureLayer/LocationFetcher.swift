@@ -11,6 +11,7 @@ import Combine
 
 protocol LocationFetchable {
 	var currentLocation: AnyPublisher<Location, InfrastructureError> { get }
+	var isAccessable: Bool { get }
 	func enable()
 	func disable()
 }
@@ -24,11 +25,14 @@ class LocationFetcher: NSObject, LocationFetchable {
 	init(locationMgr: LocationManagerProtocol = CLLocationManager()) {
 		locationManager = locationMgr
 		locationManager.requestAlwaysAuthorization()
-		locationManager.startUpdatingLocation()
 		locationPublisher = PassthroughSubject<Location, InfrastructureError>()
 		currentLocation = locationPublisher.eraseToAnyPublisher()
 		super.init()
 		locationManager.delegate = self
+	}
+	
+	var isAccessable: Bool {
+		return locationManager.isLocationServicesEnabled()
 	}
 	
 	func enable() {

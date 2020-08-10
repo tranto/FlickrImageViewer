@@ -24,15 +24,16 @@ struct Photo: Codable {
 	let server: String
 	let farm: Int
 	let title: String
-	let ispublic: Bool
-	let isfriend: Bool
-	let isfamily: Bool
+	let ispublic: Int
+	let isfriend: Int
+	let isfamily: Int
 }
 
 struct Photos: Codable {
+	let page: Int
 	let pages: Int
 	let perpage: Int
-	let total: Int
+	let total: String
 	let photo: [Photo]
 }
 

@@ -9,8 +9,8 @@ import Foundation
 import Combine
 
 protocol PhotoManagerProtocol: class {
-	func searchPhotos(location: Location) -> AnyPublisher<Photos, InfrastructureError>
-	func searchPhotos(tags: [String], location: Location) -> AnyPublisher<Photos, InfrastructureError>
+	func searchPhotos(location: Location) -> AnyPublisher<SearchPhotoResponse, InfrastructureError>
+	func searchPhotos(tags: [String], location: Location) -> AnyPublisher<SearchPhotoResponse, InfrastructureError>
 }
 
 class PhotoManager: PhotoManagerProtocol {
@@ -24,7 +24,7 @@ class PhotoManager: PhotoManagerProtocol {
 		requestFactory = RequestFactory(config: config)
 	}
 	
-	func searchPhotos(location: Location) -> AnyPublisher<Photos, InfrastructureError> {
+	func searchPhotos(location: Location) -> AnyPublisher<SearchPhotoResponse, InfrastructureError> {
 		guard let components = try? requestFactory.makeSearchPhotosRequestWith(location: location),
 			let url = components.url else {
 				let error = InfrastructureError.client(description: "Cannot create url".localized)
@@ -41,7 +41,7 @@ class PhotoManager: PhotoManagerProtocol {
 		.eraseToAnyPublisher()
 	}
 	
-	func searchPhotos(tags: [String], location: Location) -> AnyPublisher<Photos, InfrastructureError> {
+	func searchPhotos(tags: [String], location: Location) -> AnyPublisher<SearchPhotoResponse, InfrastructureError> {
 		
 		guard let components = try? requestFactory.makeSearchPhotosRequestWith(tags: tags, location: location),
 			let url = components.url else {

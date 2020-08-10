@@ -11,7 +11,7 @@
 
 APP_NAME = FlickrImageViewer
 
-BASE_URL = http:#()www.flickr.com
+BASE_URL = https:#()www.flickr.com
 
 FLICKR_URL_PATH = /services/rest
 

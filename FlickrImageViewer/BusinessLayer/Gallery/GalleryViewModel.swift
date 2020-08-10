@@ -13,21 +13,45 @@ import CoreLocation
 class GalleryViewModel: ObservableObject, Identifiable {
 	
 	private let locationFetcher: LocationFetchable
+	private let photoManager: PhotoManagerProtocol
 	private var disposables = Set<AnyCancellable>()
-	@Published var content: GalleryContentModel = GalleryContentModel()
+	@Published var currentLocation: Location = Location(lon: 0, lat: 0)
 	@Published var tags: String = ""
+	var screenTitle = "Gallery".localized + " 🏷"
+	var photoDataSource: SearchPhotoResponse?
 	
-	init(locationFetcher: LocationFetchable, scheduler: DispatchQueue = DispatchQueue(label: String(describing: GalleryViewModel.self))) {
+	init(locationFetcher: LocationFetchable, scheduler: DispatchQueue = DispatchQueue(label: String(describing: GalleryViewModel.self)),
+		 photoManager: PhotoManagerProtocol) {
 		self.locationFetcher = locationFetcher
-		self.fetchCurrentLocation()
+		self.photoManager = photoManager
+		fetchCurrentLocation()
 	}
 	
 	func fetchCurrentLocation() {
-		locationFetcher.currentLocation
-			.map { response in
-				GalleryContentModel(item: response)
+		if locationFetcher.isAccessable {
+			locationFetcher.enable()
+			locationFetcher.currentLocation
+				.receive(on: DispatchQueue.main)
+				.sink(
+					receiveCompletion: { value in
+						switch value {
+						case .failure:
+							break
+						case .finished:
+							break
+						}
+				},
+					receiveValue: { [weak self] location in
+						guard let self = self else { return }
+						self.currentLocation = location
+						self.searchPhotoWithCurrentLocation(location: location)
+				})
+				.store(in: &disposables)
 		}
-		.receive(on: DispatchQueue.main)
+	}
+	
+	func searchPhotoWithCurrentLocation(location: Location) {
+		photoManager.searchPhotos(location: location).receive(on: DispatchQueue.main)
 		.sink(
 			receiveCompletion: { value in
 				switch value {
@@ -37,13 +61,12 @@ class GalleryViewModel: ObservableObject, Identifiable {
 					break
 				}
 		},
-			receiveValue: { [weak self] contentModel in
+			receiveValue: { [weak self] photos in
 				guard let self = self else { return }
-				self.content = contentModel
+				self.photoDataSource = photos
 		})
 			.store(in: &disposables)
 	}
-	
 }
 
 

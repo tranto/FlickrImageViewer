@@ -17,10 +17,10 @@ struct GalleryView: View {
         NavigationView {
 			List {
 				searchField
-				currentLocation
+				result
 			}
 			.listStyle(GroupedListStyle())
-			.navigationBarTitle(viewModel.content.screenTitle)
+			.navigationBarTitle(viewModel.screenTitle)
 		}.navigationViewStyle(StackNavigationViewStyle())
     }
 }
@@ -33,9 +33,9 @@ private extension GalleryView {
 		}
 	}
 	
-	var currentLocation: some View {
+	var result: some View {
 	   Section {
-		Text(viewModel.content.location)
+		Text("Found \(viewModel.photoDataSource?.photos.total ?? "0") Photos")
 		   .foregroundColor(.gray)
 	   }
 	 }
