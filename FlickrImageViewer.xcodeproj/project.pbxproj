@@ -38,6 +38,8 @@
 		9AB464E924DFD37800256969 /* RequestFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB464E824DFD37800256969 /* RequestFactoryTests.swift */; };
 		9AB464EB24DFE29C00256969 /* MockConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB464EA24DFE29C00256969 /* MockConfigurationManager.swift */; };
 		9AB464EE24E0169800256969 /* PhotoManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB464ED24E0169800256969 /* PhotoManagerTests.swift */; };
+		9AB464F224E1386400256969 /* JsonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB464F124E1386400256969 /* JsonLoader.swift */; };
+		9AB464F624E13A0400256969 /* ParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB464F524E13A0400256969 /* ParserTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,8 @@
 		9AB464E824DFD37800256969 /* RequestFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactoryTests.swift; sourceTree = "<group>"; };
 		9AB464EA24DFE29C00256969 /* MockConfigurationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConfigurationManager.swift; sourceTree = "<group>"; };
 		9AB464ED24E0169800256969 /* PhotoManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManagerTests.swift; sourceTree = "<group>"; };
+		9AB464F124E1386400256969 /* JsonLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonLoader.swift; sourceTree = "<group>"; };
+		9AB464F524E13A0400256969 /* ParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,8 +198,8 @@
 		9A5573F924DE86EF00853A5F /* FlickrImageViewerTests */ = {
 			isa = PBXGroup;
 			children = (
-				9A3CC5FF24DECEEE0084F2F3 /* MockLocationManager.swift */,
-				9AB464EA24DFE29C00256969 /* MockConfigurationManager.swift */,
+				9AB464F024E1384E00256969 /* Helper */,
+				9AB464EF24E1384400256969 /* Mocks */,
 				9A3CC64D24DFA6800084F2F3 /* Seeds */,
 				9A5573FC24DE86EF00853A5F /* Info.plist */,
 				9A3CC60124DED0220084F2F3 /* LocationFetcherTests.swift */,
@@ -204,6 +208,7 @@
 				9AB464E624DFD02700256969 /* JsonParserableTests.swift */,
 				9AB464E824DFD37800256969 /* RequestFactoryTests.swift */,
 				9AB464ED24E0169800256969 /* PhotoManagerTests.swift */,
+				9AB464F524E13A0400256969 /* ParserTests.swift */,
 			);
 			path = FlickrImageViewerTests;
 			sourceTree = "<group>";
@@ -251,6 +256,23 @@
 				9AB464E224DFC66500256969 /* CommonPayload.swift */,
 			);
 			path = InfrastructureLayer;
+			sourceTree = "<group>";
+		};
+		9AB464EF24E1384400256969 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				9A3CC5FF24DECEEE0084F2F3 /* MockLocationManager.swift */,
+				9AB464EA24DFE29C00256969 /* MockConfigurationManager.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		9AB464F024E1384E00256969 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				9AB464F124E1386400256969 /* JsonLoader.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -412,6 +434,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A3CC64C24DFA1DB0084F2F3 /* ConfigurationManagerTests.swift in Sources */,
+				9AB464F224E1386400256969 /* JsonLoader.swift in Sources */,
+				9AB464F624E13A0400256969 /* ParserTests.swift in Sources */,
 				9AB464EB24DFE29C00256969 /* MockConfigurationManager.swift in Sources */,
 				9AB464EE24E0169800256969 /* PhotoManagerTests.swift in Sources */,
 				9AB464E724DFD02700256969 /* JsonParserableTests.swift in Sources */,
