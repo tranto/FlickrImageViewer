@@ -8,19 +8,22 @@
 
 import SwiftUI
 import Combine
-import CoreLocation
 
 class GalleryViewModel: ObservableObject, Identifiable {
 	
-	private let locationFetcher: LocationFetchable
+	private let locationFetcher: LocationRepositoryProtocol
 	private let photoManager: PhotoManagerProtocol
 	private var disposables = Set<AnyCancellable>()
 	@Published var currentLocation: Location = Location(lon: 0, lat: 0)
 	@Published var tags: String = ""
-	var screenTitle = "Gallery".localized + " 🏷"
+	
+	var screenTitle: String {
+		return "Gallery".localized + " 🏷"
+	}
+	
 	var photoDataSource: SearchPhotoResponse?
 	
-	init(locationFetcher: LocationFetchable, scheduler: DispatchQueue = DispatchQueue(label: String(describing: GalleryViewModel.self)),
+	init(locationFetcher: LocationRepositoryProtocol, scheduler: DispatchQueue = DispatchQueue(label: String(describing: GalleryViewModel.self)),
 		 photoManager: PhotoManagerProtocol) {
 		self.locationFetcher = locationFetcher
 		self.photoManager = photoManager
@@ -51,22 +54,21 @@ class GalleryViewModel: ObservableObject, Identifiable {
 	}
 	
 	func searchPhotoWithCurrentLocation(location: Location) {
-		photoManager.searchPhotos(location: location).receive(on: DispatchQueue.main)
-		.sink(
-			receiveCompletion: { value in
-				switch value {
-				case .failure:
-					break
-				case .finished:
-					break
-				}
-		},
-			receiveValue: { [weak self] photos in
-				guard let self = self else { return }
-				self.photoDataSource = photos
-		})
+		photoManager.searchPhotos(location: location)
+			.receive(on: DispatchQueue.main)
+			.sink(
+				receiveCompletion: { value in
+					switch value {
+					case .failure:
+						break
+					case .finished:
+						break
+					}
+			},
+				receiveValue: { [weak self] photos in
+					guard let self = self else { return }
+					self.photoDataSource = photos
+			})
 			.store(in: &disposables)
 	}
 }
-
-

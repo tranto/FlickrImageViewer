@@ -13,9 +13,9 @@ import Combine
 class LocationFetcherTests: XCTestCase {
 	
 	let locationManager: MockLocationManager = MockLocationManager()
-	var sut: LocationFetcher!
+	var sut: LocationManager!
 	override func setUpWithError() throws {
-		sut = LocationFetcher(locationMgr: locationManager)
+		sut = LocationManager(locationMgr: locationManager)
 		// Put setup code here. This method is called before the invocation of each test method in the class.
 	}
 	

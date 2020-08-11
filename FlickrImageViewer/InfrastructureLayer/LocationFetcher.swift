@@ -16,7 +16,7 @@ protocol LocationFetchable {
 	func disable()
 }
 
-class LocationFetcher: NSObject, LocationFetchable {
+class LocationManager: NSObject, LocationFetchable {
 	
 	private var locationManager: LocationManagerProtocol
 	private let locationPublisher: PassthroughSubject<Location, InfrastructureError>
@@ -44,7 +44,7 @@ class LocationFetcher: NSObject, LocationFetchable {
 	}
 }
 
-extension LocationFetcher: CLLocationManagerDelegate {
+extension LocationManager: CLLocationManagerDelegate {
 	
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		guard let location = manager.location else {

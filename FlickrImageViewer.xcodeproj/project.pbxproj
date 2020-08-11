@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,7 +27,7 @@
 		9A55740624DE86EF00853A5F /* FlickrImageViewerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55740524DE86EF00853A5F /* FlickrImageViewerUITests.swift */; };
 		9A55741724DE889400853A5F /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55741624DE889400853A5F /* GalleryView.swift */; };
 		9A55741924DE88FD00853A5F /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55741824DE88FD00853A5F /* GalleryViewModel.swift */; };
-		9A55741B24DE8A0B00853A5F /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55741A24DE8A0B00853A5F /* LocationFetcher.swift */; };
+		9A55741B24DE8A0B00853A5F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55741A24DE8A0B00853A5F /* LocationManager.swift */; };
 		9A55741E24DE8C8400853A5F /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55741D24DE8C8400853A5F /* Response.swift */; };
 		9A55742024DE8CD600853A5F /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A55741F24DE8CD600853A5F /* Errors.swift */; };
 		9AB464DF24DFB6A400256969 /* NetworkRequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB464DE24DFB6A400256969 /* NetworkRequestProtocol.swift */; };
@@ -39,6 +39,11 @@
 		9AB464EE24E0169800256969 /* PhotoManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB464ED24E0169800256969 /* PhotoManagerTests.swift */; };
 		9AB464F224E1386400256969 /* JsonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB464F124E1386400256969 /* JsonLoader.swift */; };
 		9AB464F624E13A0400256969 /* ParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB464F524E13A0400256969 /* ParserTests.swift */; };
+		9AB464FA24E14D7A00256969 /* PhotoGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB464F924E14D7A00256969 /* PhotoGridView.swift */; };
+		9AB464FC24E1DE3600256969 /* PhotoGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB464FB24E1DE3600256969 /* PhotoGridViewModel.swift */; };
+		9AB464FF24E1E7B400256969 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB464FE24E1E7B400256969 /* PreviewView.swift */; };
+		9AB4650124E1E80600256969 /* PreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB4650024E1E80600256969 /* PreviewViewModel.swift */; };
+		9AB4650724E208EF00256969 /* Grid in Frameworks */ = {isa = PBXBuildFile; productRef = 9AB4650624E208EF00256969 /* Grid */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,7 +95,7 @@
 		9A55740724DE86EF00853A5F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9A55741624DE889400853A5F /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
 		9A55741824DE88FD00853A5F /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
-		9A55741A24DE8A0B00853A5F /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
+		9A55741A24DE8A0B00853A5F /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		9A55741D24DE8C8400853A5F /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		9A55741F24DE8CD600853A5F /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		9AB464DE24DFB6A400256969 /* NetworkRequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestProtocol.swift; sourceTree = "<group>"; };
@@ -102,6 +107,10 @@
 		9AB464ED24E0169800256969 /* PhotoManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManagerTests.swift; sourceTree = "<group>"; };
 		9AB464F124E1386400256969 /* JsonLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonLoader.swift; sourceTree = "<group>"; };
 		9AB464F524E13A0400256969 /* ParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserTests.swift; sourceTree = "<group>"; };
+		9AB464F924E14D7A00256969 /* PhotoGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGridView.swift; sourceTree = "<group>"; };
+		9AB464FB24E1DE3600256969 /* PhotoGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGridViewModel.swift; sourceTree = "<group>"; };
+		9AB464FE24E1E7B400256969 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		9AB4650024E1E80600256969 /* PreviewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AB4650724E208EF00256969 /* Grid in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +233,7 @@
 		9A55741424DE885C00853A5F /* BusinessLayer */ = {
 			isa = PBXGroup;
 			children = (
+				9AB464FD24E1E77100256969 /* Preview */,
 				9A55741524DE886D00853A5F /* Gallery */,
 			);
 			path = BusinessLayer;
@@ -233,6 +244,8 @@
 			children = (
 				9A55741624DE889400853A5F /* GalleryView.swift */,
 				9A55741824DE88FD00853A5F /* GalleryViewModel.swift */,
+				9AB464F924E14D7A00256969 /* PhotoGridView.swift */,
+				9AB464FB24E1DE3600256969 /* PhotoGridViewModel.swift */,
 			);
 			path = Gallery;
 			sourceTree = "<group>";
@@ -241,7 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				9A3CC5FD24DECD580084F2F3 /* LocationManagerProtocol.swift */,
-				9A55741A24DE8A0B00853A5F /* LocationFetcher.swift */,
+				9A55741A24DE8A0B00853A5F /* LocationManager.swift */,
 				9A55741D24DE8C8400853A5F /* Response.swift */,
 				9A55741F24DE8CD600853A5F /* Errors.swift */,
 				9A3CC63124DF94D50084F2F3 /* Parser.swift */,
@@ -272,6 +285,15 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		9AB464FD24E1E77100256969 /* Preview */ = {
+			isa = PBXGroup;
+			children = (
+				9AB464FE24E1E7B400256969 /* PreviewView.swift */,
+				9AB4650024E1E80600256969 /* PreviewViewModel.swift */,
+			);
+			path = Preview;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -288,6 +310,9 @@
 			dependencies = (
 			);
 			name = FlickrImageViewer;
+			packageProductDependencies = (
+				9AB4650624E208EF00256969 /* Grid */,
+			);
 			productName = FlickrImageViewer;
 			productReference = 9A5573E024DE86EB00853A5F /* FlickrImageViewer.app */;
 			productType = "com.apple.product-type.application";
@@ -361,6 +386,9 @@
 				vi,
 			);
 			mainGroup = 9A5573D724DE86EB00853A5F;
+			packageReferences = (
+				9AB4650524E208EE00256969 /* XCRemoteSwiftPackageReference "swiftui-grid" */,
+			);
 			productRefGroup = 9A5573E124DE86EB00853A5F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -406,16 +434,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AB464FC24E1DE3600256969 /* PhotoGridViewModel.swift in Sources */,
 				9A3CC63024DF84270084F2F3 /* String+Extensions.swift in Sources */,
 				9A3CC63224DF94D50084F2F3 /* Parser.swift in Sources */,
+				9AB4650124E1E80600256969 /* PreviewViewModel.swift in Sources */,
 				9AB464E324DFC66500256969 /* CommonPayload.swift in Sources */,
 				9A5573E424DE86EB00853A5F /* AppDelegate.swift in Sources */,
 				9A55741924DE88FD00853A5F /* GalleryViewModel.swift in Sources */,
-				9A55741B24DE8A0B00853A5F /* LocationFetcher.swift in Sources */,
+				9A55741B24DE8A0B00853A5F /* LocationManager.swift in Sources */,
+				9AB464FF24E1E7B400256969 /* PreviewView.swift in Sources */,
 				9A3CC63424DF973D0084F2F3 /* PhotoManager.swift in Sources */,
 				9A5573E624DE86EB00853A5F /* SceneDelegate.swift in Sources */,
 				9AB464DF24DFB6A400256969 /* NetworkRequestProtocol.swift in Sources */,
 				9A3CC65324DFB4BE0084F2F3 /* PhotoRequests.swift in Sources */,
+				9AB464FA24E14D7A00256969 /* PhotoGridView.swift in Sources */,
 				9A3CC64824DFA01D0084F2F3 /* ConfigurationManager.swift in Sources */,
 				9A55741E24DE8C8400853A5F /* Response.swift in Sources */,
 				9A55742024DE8CD600853A5F /* Errors.swift in Sources */,
@@ -887,6 +919,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9AB4650524E208EE00256969 /* XCRemoteSwiftPackageReference "swiftui-grid" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:spacenation/swiftui-grid.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9AB4650624E208EF00256969 /* Grid */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9AB4650524E208EE00256969 /* XCRemoteSwiftPackageReference "swiftui-grid" */;
+			productName = Grid;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9A5573D824DE86EB00853A5F /* Project object */;
 }

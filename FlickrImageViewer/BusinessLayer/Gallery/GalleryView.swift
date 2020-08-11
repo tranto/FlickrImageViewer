@@ -6,7 +6,6 @@
 //  Copyright © 2020 Tran To. All rights reserved.
 //
 
-import Foundation
 import SwiftUI
 
 struct GalleryView: View {
@@ -14,18 +13,40 @@ struct GalleryView: View {
 	@ObservedObject var viewModel: GalleryViewModel
 	
     var body: some View {
-        NavigationView {
+		NavigationView {
 			List {
-				searchField
-				result
+				ScrollView(.horizontal)	{
+					tagsFilter
+				}
+				PhotoGridView(viewModel: PhotoGridViewModel())
+					.aspectRatio(contentMode: .fill)
 			}
-			.listStyle(GroupedListStyle())
 			.navigationBarTitle(viewModel.screenTitle)
-		}.navigationViewStyle(StackNavigationViewStyle())
+		}
+		.navigationViewStyle(StackNavigationViewStyle())
+		.background(Color.blue)
     }
 }
 
 private extension GalleryView {
+	
+	var tagsFilter: some View {
+		HStack {
+			Button("Amazing"){}
+				.padding(8)
+				.foregroundColor(.white)
+				.background(Color.gray)
+				.shadow(radius: 4)
+				.cornerRadius(6)
+			
+			Button("Beautiful"){}
+			.padding(8)
+			.foregroundColor(.white)
+			.background(Color.gray)
+			.shadow(radius: 4)
+			.cornerRadius(6)
+		}
+	}
 	
 	var searchField: some View {
 		HStack(alignment: .center) {

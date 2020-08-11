@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 	func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 	
-		let locationFetcher = LocationFetcher()
+		let locationFetcher = LocationManager()
 		let photoManager = PhotoManager(configurationManager: ConfigurationManager())
 		let viewModel = GalleryViewModel(locationFetcher: locationFetcher, photoManager: photoManager)
 		let contentView = GalleryView(viewModel: viewModel)
