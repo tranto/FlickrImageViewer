@@ -7,10 +7,11 @@
 //
 
 import Combine
+import UIKit
 
 class PreviewViewModel {
 	
-	private var privateImageName: String
+	private var privateImage: UIImage
 	private var privateTitle: String
 	private var resolution: String
 	private var id: String
@@ -25,15 +26,17 @@ class PreviewViewModel {
 		return "Resolution: \(resolution) \nSize: \(size) \nPosted date: \(postedDate)"
 	}
 	
-	var imageName: String {
-		return privateImageName
+	var image: UIImage {
+		return privateImage
 	}
-	init(title: String, resolution: String, imageName: String, id: String, size: String, postedDate: String) {
+	
+	init(title: String, resolution: String, image: UIImage, id: String, size: String, postedDate: String) {
 		self.privateTitle = title
 		self.resolution = resolution
-		self.privateImageName = imageName
+		self.privateImage = image
 		self.id = id
 		self.size = size
 		self.postedDate = postedDate
 	}
 }
+

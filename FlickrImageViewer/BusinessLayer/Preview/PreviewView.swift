@@ -13,7 +13,7 @@ struct PreviewView: View {
 	var item: PreviewViewModel
     var body: some View {
 		VStack(alignment: .leading, spacing: 16.0, content: {
-			Image(item.imageName)
+			Image(uiImage: item.image)
 				.resizable()
 				.renderingMode(.original)
 				.aspectRatio(contentMode: .fit)
@@ -32,6 +32,6 @@ struct PreviewView: View {
 
 struct PreviewView_Previews: PreviewProvider {
 	static var previews: some View {
-		PreviewView(item: PreviewViewModel(title: "The Sydney Coffee", resolution: "3000 pixels/inch", imageName: "unsplash2", id: "324243", size: "1248 * 1248", postedDate: "2020-08-09"))
+		PreviewView(item: PreviewViewModel(title: "The Sydney Coffee", resolution: "3000 pixels/inch", image: UIImage(named: "placeholder")! , id: "324243", size: "1248 * 1248", postedDate: "2020-08-09"))
 	}
 }

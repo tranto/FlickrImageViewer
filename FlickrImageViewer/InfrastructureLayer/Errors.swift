@@ -14,6 +14,7 @@ enum InfrastructureError: Error {
 	case client(description: String)
 	case server(description: String)
 	case invalidRequest(description: String)
+	case downloadFail(description: String)
 }
 
 enum UserInterfaceError: Error {
