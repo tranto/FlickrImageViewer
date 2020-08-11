@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -42,7 +42,6 @@
 		9AB464FA24E14D7A00256969 /* PhotoGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB464F924E14D7A00256969 /* PhotoGridView.swift */; };
 		9AB464FF24E1E7B400256969 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB464FE24E1E7B400256969 /* PreviewView.swift */; };
 		9AB4650124E1E80600256969 /* PreviewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB4650024E1E80600256969 /* PreviewViewModel.swift */; };
-		9AB4650724E208EF00256969 /* Grid in Frameworks */ = {isa = PBXBuildFile; productRef = 9AB4650624E208EF00256969 /* Grid */; };
 		9AB4650B24E22A1F00256969 /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB4650A24E22A1F00256969 /* UIImage+Extensions.swift */; };
 		9AB4651824E273F200256969 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB4651724E273F200256969 /* ImageCache.swift */; };
 		9AB4651A24E2743000256969 /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB4651924E2743000256969 /* AsyncImage.swift */; };
@@ -124,7 +123,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AB4650724E208EF00256969 /* Grid in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,7 +326,6 @@
 			);
 			name = FlickrImageViewer;
 			packageProductDependencies = (
-				9AB4650624E208EF00256969 /* Grid */,
 			);
 			productName = FlickrImageViewer;
 			productReference = 9A5573E024DE86EB00853A5F /* FlickrImageViewer.app */;
@@ -404,7 +401,6 @@
 			);
 			mainGroup = 9A5573D724DE86EB00853A5F;
 			packageReferences = (
-				9AB4650524E208EE00256969 /* XCRemoteSwiftPackageReference "swiftui-grid" */,
 			);
 			productRefGroup = 9A5573E124DE86EB00853A5F /* Products */;
 			projectDirPath = "";
@@ -939,25 +935,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		9AB4650524E208EE00256969 /* XCRemoteSwiftPackageReference "swiftui-grid" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "git@github.com:spacenation/swiftui-grid.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.4;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		9AB4650624E208EF00256969 /* Grid */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 9AB4650524E208EE00256969 /* XCRemoteSwiftPackageReference "swiftui-grid" */;
-			productName = Grid;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9A5573D824DE86EB00853A5F /* Project object */;
 }
