@@ -11,7 +11,8 @@ import SwiftUI
 struct GalleryView: View {
 	
 	@ObservedObject var viewModel: GalleryViewModel
-    
+	let coordinator: RootMasterCoordinator
+	
 	var body: some View {
 		NavigationView {
 			List {
@@ -37,7 +38,11 @@ private extension GalleryView {
 	}
 	
 	var photoGrid: some View {
-		PhotoGridView(downloadedImages: viewModel.photos)
+		PhotoGridView(downloadedImages: viewModel.photos, callBack:  { key in
+//			let viewModel = PreviewViewModel(title: <#T##String#>, resolution: <#T##String#>, image: <#T##UIImage#>, id: <#T##String#>, size: <#T##String#>, postedDate: <#T##String#>)
+//			self.coordinator.coordinatortoPreview(viewModel: <#T##PreviewViewModel#>, isPresented: )
+			print("I'm here \(key)")
+		})
 			.aspectRatio(contentMode: .fit)
 	}
 	

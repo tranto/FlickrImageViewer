@@ -23,7 +23,7 @@ class ConfigurationManagerTests: XCTestCase {
 
     func testFetchingBaseURL() throws {
 		let baseURL = sut.baseURL
-		let expectedStr = "http://www.flickr.com"
+		let expectedStr = "https://www.flickr.com"
 		XCTAssertEqual(expectedStr, baseURL, "The base url is not matching")
     }
     

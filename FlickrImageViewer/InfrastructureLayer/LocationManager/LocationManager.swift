@@ -9,14 +9,14 @@
 import CoreLocation
 import Combine
 
-protocol LocationRepositoryProtocol {
+protocol LocationFetcherProtocol {
 	var currentLocation: AnyPublisher<Location, InfrastructureError> { get }
 	var isAccessable: Bool { get }
 	func enable()
 	func disable()
 }
 
-class LocationManager: NSObject, LocationRepositoryProtocol {
+class LocationFetcher: NSObject, LocationFetcherProtocol {
 	
 	private var locationManager: LocationManagerProtocol
 	private let locationPublisher: PassthroughSubject<Location, InfrastructureError>
@@ -44,7 +44,7 @@ class LocationManager: NSObject, LocationRepositoryProtocol {
 	}
 }
 
-extension LocationManager: CLLocationManagerDelegate {
+extension LocationFetcher: CLLocationManagerDelegate {
 	
 	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 		guard let location = manager.location else {

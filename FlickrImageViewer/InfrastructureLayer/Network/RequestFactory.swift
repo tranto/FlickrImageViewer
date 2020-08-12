@@ -24,7 +24,7 @@ class RequestFactory: RequestFactoryProtocol {
 	}
 	
 	public func makeSearchPhotosRequestWith(location: Location) throws -> URLComponents {
-		return try self.makeSearchPhotosRequestWith(tags: [], location: location)
+		return try self.makeSearchPhotosRequestWith(tags: [], location: location, page: 1)
 	}
 	
 	public func makeSearchPhotosRequestWith(tags: [String], location: Location) throws -> URLComponents {

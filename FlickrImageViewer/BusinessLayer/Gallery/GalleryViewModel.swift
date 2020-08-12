@@ -11,7 +11,7 @@ import Combine
 
 class GalleryViewModel: ObservableObject, Identifiable {
 	
-	private let locationFetcher: LocationRepositoryProtocol
+	private let locationFetcher: LocationFetcherProtocol
 	private let photoManager: PhotoManagerProtocol
 	private var disposables = Set<AnyCancellable>()
 
@@ -30,11 +30,17 @@ class GalleryViewModel: ObservableObject, Identifiable {
 		return "Gallery".localized + " 🏷"
 	}
 	
-	init(locationFetcher: LocationRepositoryProtocol, scheduler: DispatchQueue = DispatchQueue(label: String(describing: GalleryViewModel.self)),
+	init(locationFetcher: LocationFetcherProtocol, scheduler: DispatchQueue = DispatchQueue(label: String(describing: GalleryViewModel.self)),
 		 photoManager: PhotoManagerProtocol) {
 		self.locationFetcher = locationFetcher
 		self.photoManager = photoManager
 		fetchCurrentLocation()
+		//$city emits its first value
+		$tags
+			.dropFirst(1)
+			.debounce(for: .seconds(0.5), scheduler: scheduler)
+			.sink(receiveValue: searchPhotoWithCurrentLocationAndTags(tags:))
+			.store(in: &disposables)
 	}
 	
 	func fetchCurrentLocation() {
@@ -77,6 +83,32 @@ class GalleryViewModel: ObservableObject, Identifiable {
 					self.state.page += 1
 			})
 			.store(in: &disposables)
+	}
+	
+	func searchPhotoWithCurrentLocationAndTags(tags: String) {
+		self.photos.removeAll()
+		photoManager.searchPhotos(tags: [tags], location: self.currentLocation)
+		.map({ result in
+			result.photos.photo.map({ return String("https://farm\($0.farm).staticflickr.com/\($0.server)/\($0.id)_\($0.secret)_m.jpg") })
+		})
+		.receive(on: DispatchQueue.main)
+		.sink(
+			receiveCompletion: { value in
+				switch value {
+				case .failure:
+					self.state.canLoadNextPage = false
+					break
+				case .finished:
+					break
+				}
+		},
+			receiveValue: { [weak self] names in
+				guard let self = self else { return }
+				names.forEach({ self.photos[$0] = UIImage()})
+				self.state.canLoadNextPage = names.count > 0
+				self.state.page += 1
+		})
+		.store(in: &disposables)
 	}
 	
 	func fetchNextPageIfPossible() {
