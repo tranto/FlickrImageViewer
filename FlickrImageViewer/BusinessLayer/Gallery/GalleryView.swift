@@ -17,39 +17,35 @@ struct GalleryView: View {
 		NavigationView {
 			List {
 				searchField
-				if viewModel.photos.count > .zero {
+				if viewModel.photoURLs.count > .zero {
 					photoGrid.listRowInsets(EdgeInsets())
 				} else {
 					result
 				}
+				
 			}.navigationBarTitle(viewModel.screenTitle)
 		}
 		.navigationViewStyle(StackNavigationViewStyle())
 		.background(Color.blue)
-    }
+	}
 }
 
 private extension GalleryView {
 	
 	var searchField: some View {
 		HStack(alignment: .center) {
-			TextField("Tags: Sydney", text: $viewModel.tags)
+			TextField("Tags: Sydney".localized, text: $viewModel.tags)
 		}
 	}
 	
 	var photoGrid: some View {
-		PhotoGridView(downloadedImages: viewModel.photos, callBack:  { key in
-//			let viewModel = PreviewViewModel(title: <#T##String#>, resolution: <#T##String#>, image: <#T##UIImage#>, id: <#T##String#>, size: <#T##String#>, postedDate: <#T##String#>)
-//			self.coordinator.coordinatortoPreview(viewModel: <#T##PreviewViewModel#>, isPresented: )
-			print("I'm here \(key)")
-		})
-			.aspectRatio(contentMode: .fit)
+		PhotoGridView(downloadingImageURLs: viewModel.photoURLs, onPhototTapped:  { key in
+		}).aspectRatio(contentMode: .fit)
 	}
 	
 	var result: some View {
-	  Section {
-	   Text("Searching Photos...")
-		  .foregroundColor(.gray)
-	  }
+		Section {
+			Text("Searching Photos...".localized).foregroundColor(.gray)
+		}
 	}
 }

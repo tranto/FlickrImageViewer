@@ -12,8 +12,8 @@ struct GridRowView: View {
     
     var itemPerRow: CGFloat
 	var contents: [String: AsyncImage<Image>]
-//	typealias Callback = (_ activityType: String) -> Void
-	var callBack: ((String) -> Void)?
+	var onPhotoTapped: ((String) -> Void)?
+	
     var body: some View {
         HStack(spacing: 1) {
             ForEach(0..<Array(contents).count) { i in
@@ -24,8 +24,7 @@ struct GridRowView: View {
                 )
 				.clipped()
 				.onTapGesture(perform: {
-					print("Coloumn \(i) url \(Array(self.contents)[i].key)")
-					self.callBack?(Array(self.contents)[i].key)
+					self.onPhotoTapped?(Array(self.contents)[i].key)
 				})
             }
 		}.aspectRatio(contentMode: .fit)

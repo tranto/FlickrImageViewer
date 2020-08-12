@@ -13,13 +13,14 @@ struct PhotoGridView: View {
 	
 	@Environment(\.imageCache) var cache: ImageCache
 	var itemsPerRow = 3
-	var downloadedImages: [String: UIImage?] = [:]
-	var callBack: ((String) -> Void)?
+	var downloadingImageURLs: [URL] = []
+	var onPhototTapped: ((_ key: String) -> Void)?
+	
 	var body: some View {
 		ScrollView {
 			VStack(spacing: .zero) {
-				ForEach(.zero..<getRowCount(numerator: downloadedImages.count, denominator: itemsPerRow)) { index in
-					GridRowView(itemPerRow: CGFloat(self.itemsPerRow), contents: self.getRowContent(rowNumber: index, itemsPerRow: self.itemsPerRow), callBack: self.callBack)
+				ForEach(.zero..<getRowCount(numerator: downloadingImageURLs.count, denominator: itemsPerRow)) { index in
+					GridRowView(itemPerRow: CGFloat(self.itemsPerRow), contents: self.getRowContent(rowNumber: index, itemsPerRow: self.itemsPerRow), onPhotoTapped: self.onPhototTapped)
 				}
 			}
 		}
@@ -38,11 +39,9 @@ struct PhotoGridView: View {
 		var returnItems: [String: AsyncImage<Image>] = [:]
 		for index in 0..<itemsPerRow {
 			let itemIndex = (rowNumber * itemsPerRow) + index
-			if itemIndex < downloadedImages.count {
-				let photoAtIndex = Array(self.downloadedImages)[itemIndex]
-				let urlPath = photoAtIndex.key
-				let url = URL(string: urlPath)!
-				returnItems[urlPath] = AsyncImage(url: url, cache: self.cache, placeholder: Image("placeholder"), configuration: { $0.resizable() })
+			if itemIndex < downloadingImageURLs.count {
+				let urlPath = downloadingImageURLs[itemIndex]
+				returnItems[urlPath.absoluteString] = AsyncImage(url: urlPath, cache: self.cache, placeholder: Image("placeholder"), configuration: { $0.resizable() })
 			}
 		}
 		return returnItems

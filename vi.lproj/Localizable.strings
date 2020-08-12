@@ -11,3 +11,5 @@
 "Invalid base url: %@" = "Invalid base url: %@";
 "Cannot encode object to dict" = "Cannot encode object to dict";
 "Cannot create url" = "Cannot create url";
+"Tags: Sydney" = "Tags: Sydney";
+"Searching Photos..." = "Searching Photos...";
