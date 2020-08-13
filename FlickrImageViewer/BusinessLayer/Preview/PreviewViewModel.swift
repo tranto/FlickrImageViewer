@@ -11,32 +11,25 @@ import UIKit
 
 class PreviewViewModel {
 	
-	private var privateImage: UIImage
-	private var privateTitle: String
-	private var resolution: String
-	private var id: String
-	private var size: String
-	private var postedDate: String
+	private let photoManager: PhotoManagerProtocol
+	private var disposables = Set<AnyCancellable>()
+	private var photo: Photo
+	
+	var thumbnail: URL {
+		return URL(string: Parser.thumbnailUrlPath(photo: photo))!
+	}
+	
+	var original: URL {
+		return URL(string: Parser.originalUrlPath(photo: photo))!
+	}
 	
 	var title: String {
-		return privateTitle
+		return photo.title
 	}
 	
-	var description: String {
-		return "Resolution: \(resolution) \nSize: \(size) \nPosted date: \(postedDate)"
-	}
-	
-	var image: UIImage {
-		return privateImage
-	}
-	
-	init(title: String, resolution: String, image: UIImage, id: String, size: String, postedDate: String) {
-		self.privateTitle = title
-		self.resolution = resolution
-		self.privateImage = image
-		self.id = id
-		self.size = size
-		self.postedDate = postedDate
+	init(photo: Photo, photoManager: PhotoManagerProtocol) {
+		self.photo = photo
+		self.photoManager = photoManager
 	}
 }
 

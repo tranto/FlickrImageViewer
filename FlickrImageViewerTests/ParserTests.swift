@@ -26,4 +26,15 @@ class ParserTests: XCTestCase {
 		XCTAssertEqual(reponse.photos.total, "28013")
     }
 
+	func testParserThumbnailUrlPath() {
+		let photo  = Photo(id: "124", owner: "344", secret: "242", server: "232", farm: 56, title: "SFDS", ispublic: 1, isfriend: 1, isfamily: 1)
+		let result = Parser.thumbnailUrlPath(photo: photo)
+		XCTAssertEqual(result, "https://farm56.staticflickr.com/232/124_242_m.jpg")
+	}
+	
+	func testParserOriginalUrlPath() {
+		let photo  = Photo(id: "124", owner: "344", secret: "242", server: "232", farm: 56, title: "SFDS", ispublic: 1, isfriend: 1, isfamily: 1)
+		let result = Parser.originalUrlPath(photo: photo)
+		XCTAssertEqual(result, "https://farm56.staticflickr.com/232/124_242_b.jpg")
+	}
 }

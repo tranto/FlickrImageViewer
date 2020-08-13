@@ -9,7 +9,7 @@
 import Foundation
 import Combine
 
-class Parser: NSObject {
+class Parser {
 	
 	static func decode<T: Decodable>(_ data: Data) -> AnyPublisher<T, InfrastructureError> {
 		let decoder = JSONDecoder()
@@ -21,5 +21,13 @@ class Parser: NSObject {
 				.parsing(description: error.localizedDescription)
 		}
 		.eraseToAnyPublisher()
+	}
+	
+	static func thumbnailUrlPath(photo: Photo) -> String {
+		return String("https://farm\(photo.farm).staticflickr.com/\(photo.server)/\(photo.id)_\(photo.secret)_m.jpg")
+	}
+	
+	static func originalUrlPath(photo: Photo) -> String {
+		return String("https://farm\(photo.farm).staticflickr.com/\(photo.server)/\(photo.id)_\(photo.secret)_b.jpg")
 	}
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A0E4B3E24E4AAF3004951FD /* MockPhotoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0E4B3D24E4AAF3004951FD /* MockPhotoManager.swift */; };
+		9A0E4B4224E4B231004951FD /* GalleryViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0E4B4124E4B231004951FD /* GalleryViewModelTests.swift */; };
+		9A0E4B4424E4B387004951FD /* MockLocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0E4B4324E4B387004951FD /* MockLocationFetcher.swift */; };
 		9A3CC5FE24DECD580084F2F3 /* LocationManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3CC5FD24DECD580084F2F3 /* LocationManagerProtocol.swift */; };
 		9A3CC60024DECEEE0084F2F3 /* MockLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3CC5FF24DECEEE0084F2F3 /* MockLocationManager.swift */; };
 		9A3CC60224DED0220084F2F3 /* LocationFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3CC60124DED0220084F2F3 /* LocationFetcherTests.swift */; };
@@ -36,7 +39,6 @@
 		9AB464E724DFD02700256969 /* JsonParserableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB464E624DFD02700256969 /* JsonParserableTests.swift */; };
 		9AB464E924DFD37800256969 /* RequestFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB464E824DFD37800256969 /* RequestFactoryTests.swift */; };
 		9AB464EB24DFE29C00256969 /* MockConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB464EA24DFE29C00256969 /* MockConfigurationManager.swift */; };
-		9AB464EE24E0169800256969 /* PhotoManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB464ED24E0169800256969 /* PhotoManagerTests.swift */; };
 		9AB464F224E1386400256969 /* JsonLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB464F124E1386400256969 /* JsonLoader.swift */; };
 		9AB464F624E13A0400256969 /* ParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB464F524E13A0400256969 /* ParserTests.swift */; };
 		9AB464FA24E14D7A00256969 /* PhotoGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB464F924E14D7A00256969 /* PhotoGridView.swift */; };
@@ -49,7 +51,7 @@
 		9AB4651F24E2BDF500256969 /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB4651E24E2BDF500256969 /* CoordinatorProtocol.swift */; };
 		9AB4652124E2BE6200256969 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB4652024E2BE6200256969 /* ApplicationCoordinator.swift */; };
 		9AB4652324E2BE9D00256969 /* RootMasterCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB4652224E2BE9D00256969 /* RootMasterCoordinator.swift */; };
-		9AB4652924E34A2300256969 /* DetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB4652824E34A2300256969 /* DetailsCoordinator.swift */; };
+		9AB4652924E34A2300256969 /* PreviewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB4652824E34A2300256969 /* PreviewCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9A0E4B3D24E4AAF3004951FD /* MockPhotoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPhotoManager.swift; sourceTree = "<group>"; };
+		9A0E4B4124E4B231004951FD /* GalleryViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModelTests.swift; sourceTree = "<group>"; };
+		9A0E4B4324E4B387004951FD /* MockLocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationFetcher.swift; sourceTree = "<group>"; };
 		9A3CC5FD24DECD580084F2F3 /* LocationManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerProtocol.swift; sourceTree = "<group>"; };
 		9A3CC5FF24DECEEE0084F2F3 /* MockLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockLocationManager.swift; sourceTree = "<group>"; };
 		9A3CC60124DED0220084F2F3 /* LocationFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcherTests.swift; sourceTree = "<group>"; };
@@ -110,7 +115,6 @@
 		9AB464E624DFD02700256969 /* JsonParserableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonParserableTests.swift; sourceTree = "<group>"; };
 		9AB464E824DFD37800256969 /* RequestFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactoryTests.swift; sourceTree = "<group>"; };
 		9AB464EA24DFE29C00256969 /* MockConfigurationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockConfigurationManager.swift; sourceTree = "<group>"; };
-		9AB464ED24E0169800256969 /* PhotoManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoManagerTests.swift; sourceTree = "<group>"; };
 		9AB464F124E1386400256969 /* JsonLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonLoader.swift; sourceTree = "<group>"; };
 		9AB464F524E13A0400256969 /* ParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserTests.swift; sourceTree = "<group>"; };
 		9AB464F924E14D7A00256969 /* PhotoGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGridView.swift; sourceTree = "<group>"; };
@@ -123,7 +127,7 @@
 		9AB4651E24E2BDF500256969 /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
 		9AB4652024E2BE6200256969 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		9AB4652224E2BE9D00256969 /* RootMasterCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootMasterCoordinator.swift; sourceTree = "<group>"; };
-		9AB4652824E34A2300256969 /* DetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCoordinator.swift; sourceTree = "<group>"; };
+		9AB4652824E34A2300256969 /* PreviewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,8 +231,8 @@
 				9A3CC64B24DFA1DB0084F2F3 /* ConfigurationManagerTests.swift */,
 				9AB464E624DFD02700256969 /* JsonParserableTests.swift */,
 				9AB464E824DFD37800256969 /* RequestFactoryTests.swift */,
-				9AB464ED24E0169800256969 /* PhotoManagerTests.swift */,
 				9AB464F524E13A0400256969 /* ParserTests.swift */,
+				9A0E4B4124E4B231004951FD /* GalleryViewModelTests.swift */,
 			);
 			path = FlickrImageViewerTests;
 			sourceTree = "<group>";
@@ -279,6 +283,8 @@
 			children = (
 				9A3CC5FF24DECEEE0084F2F3 /* MockLocationManager.swift */,
 				9AB464EA24DFE29C00256969 /* MockConfigurationManager.swift */,
+				9A0E4B3D24E4AAF3004951FD /* MockPhotoManager.swift */,
+				9A0E4B4324E4B387004951FD /* MockLocationFetcher.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -322,7 +328,7 @@
 				9AB4651E24E2BDF500256969 /* CoordinatorProtocol.swift */,
 				9AB4652024E2BE6200256969 /* ApplicationCoordinator.swift */,
 				9AB4652224E2BE9D00256969 /* RootMasterCoordinator.swift */,
-				9AB4652824E34A2300256969 /* DetailsCoordinator.swift */,
+				9AB4652824E34A2300256969 /* PreviewCoordinator.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -490,7 +496,7 @@
 				9AB464E324DFC66500256969 /* CommonPayload.swift in Sources */,
 				9AB4652124E2BE6200256969 /* ApplicationCoordinator.swift in Sources */,
 				9A5573E424DE86EB00853A5F /* AppDelegate.swift in Sources */,
-				9AB4652924E34A2300256969 /* DetailsCoordinator.swift in Sources */,
+				9AB4652924E34A2300256969 /* PreviewCoordinator.swift in Sources */,
 				9A55741924DE88FD00853A5F /* GalleryViewModel.swift in Sources */,
 				9A55741B24DE8A0B00853A5F /* LocationManager.swift in Sources */,
 				9AB464FF24E1E7B400256969 /* PreviewView.swift in Sources */,
@@ -517,16 +523,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A0E4B4224E4B231004951FD /* GalleryViewModelTests.swift in Sources */,
 				9A3CC64C24DFA1DB0084F2F3 /* ConfigurationManagerTests.swift in Sources */,
 				9AB464F224E1386400256969 /* JsonLoader.swift in Sources */,
 				9AB464F624E13A0400256969 /* ParserTests.swift in Sources */,
+				9A0E4B4424E4B387004951FD /* MockLocationFetcher.swift in Sources */,
 				9AB464EB24DFE29C00256969 /* MockConfigurationManager.swift in Sources */,
-				9AB464EE24E0169800256969 /* PhotoManagerTests.swift in Sources */,
 				9AB464E724DFD02700256969 /* JsonParserableTests.swift in Sources */,
 				9AB464E924DFD37800256969 /* RequestFactoryTests.swift in Sources */,
 				9A3CC60624DEDD9C0084F2F3 /* XCTest+Extensions.swift in Sources */,
 				9A3CC60224DED0220084F2F3 /* LocationFetcherTests.swift in Sources */,
 				9A3CC60024DECEEE0084F2F3 /* MockLocationManager.swift in Sources */,
+				9A0E4B3E24E4AAF3004951FD /* MockPhotoManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

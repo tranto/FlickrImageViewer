@@ -1,5 +1,5 @@
 //
-//  DetailsCoordinator.swift
+//  PreviewCoordinator.swift
 //  FlickrImageViewer
 //
 //  Created by Tran To on 12/8/20.

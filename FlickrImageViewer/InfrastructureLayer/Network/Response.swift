@@ -18,15 +18,15 @@ struct Location: Codable, Equatable {
 }
 
 struct Photo: Codable, Equatable {
-	let id: String
-	let owner: String
-	let secret: String
-	let server: String
-	let farm: Int
-	let title: String
-	let ispublic: Int
-	let isfriend: Int
-	let isfamily: Int
+	var id: String
+	var owner: String
+	var secret: String
+	var server: String
+	var farm: Int
+	var title: String
+	var ispublic: Int
+	var isfriend: Int
+	var isfamily: Int
 	
 	static func ==(lhs: Photo, rhs: Photo) -> Bool {
 		return lhs.id == rhs.id && lhs.secret == rhs.secret

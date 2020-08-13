@@ -7,6 +7,7 @@
 //
 
 import Foundation
+@testable import FlickrImageViewer
 
 final class JSONLoader {
  
@@ -23,5 +24,11 @@ final class JSONLoader {
 			print(error.localizedDescription)
 		}
 		return nil
+	}
+	
+	static func loadDummyPhotos() -> SearchPhotoResponse {
+		let photosData = JSONLoader.load(fileName: "photos")
+		let decoder = JSONDecoder()
+		return try! decoder.decode(SearchPhotoResponse.self, from: photosData!)
 	}
 }

@@ -12,15 +12,19 @@ import UIKit
 struct PhotoGridView: View {
 	
 	@Environment(\.imageCache) var cache: ImageCache
+	
 	var itemsPerRow = 3
 	var downloadingImageURLs: [URL] = []
 	var onPhototTapped: ((_ key: String) -> Void)?
+	var onLoadMore: ((_ enable: Bool) -> Void)?
 	
 	var body: some View {
 		ScrollView {
 			VStack(spacing: .zero) {
 				ForEach(.zero..<getRowCount(numerator: downloadingImageURLs.count, denominator: itemsPerRow)) { index in
-					GridRowView(itemPerRow: CGFloat(self.itemsPerRow), contents: self.getRowContent(rowNumber: index, itemsPerRow: self.itemsPerRow), onPhotoTapped: self.onPhototTapped)
+					GridRowView(itemPerRow: CGFloat(self.itemsPerRow), contents: self.getRowContent(rowNumber: index, itemsPerRow: self.itemsPerRow), onPhotoTapped: self.onPhototTapped).onAppear(perform: {
+						self.onLoadMore?(index == 0)
+					})
 				}
 			}
 		}

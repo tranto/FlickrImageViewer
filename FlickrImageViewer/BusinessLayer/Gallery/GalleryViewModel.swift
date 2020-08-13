@@ -14,14 +14,14 @@ class GalleryViewModel: ObservableObject, Identifiable {
 	private let locationFetcher: LocationFetcherProtocol
 	private let photoManager: PhotoManagerProtocol
 	private var disposables = Set<AnyCancellable>()
-	private var searchResult : [Photo] = []
+	var searchResult : [Photo] = []
 	@Published var currentLocation: Location = Location(lon: 0, lat: 0)
 	@Published var tags: String = ""
 	@Published private(set) var state = State()
 	@Published var photoURLs: [URL] = []
+	@Published var selectedPhoto: Photo?
 	
 	struct State {
-		var photoNames: [String] = []
 		var page: Int = 1
 		var canLoadNextPage = true
 	}
@@ -32,12 +32,12 @@ class GalleryViewModel: ObservableObject, Identifiable {
 	
 	init(locationFetcher: LocationFetcherProtocol, scheduler: DispatchQueue = DispatchQueue(label: String(describing: GalleryViewModel.self)),
 		 photoManager: PhotoManagerProtocol) {
+		
 		self.locationFetcher = locationFetcher
 		self.photoManager = photoManager
 		fetchCurrentLocation()
 		
-		$tags
-			.dropFirst(1)
+		$tags.dropFirst(1)
 			.debounce(for: .seconds(0.5), scheduler: scheduler)
 			.sink(receiveValue: searchPhotoWithCurrentLocationAndTags(tags:))
 			.store(in: &disposables)
@@ -52,7 +52,7 @@ class GalleryViewModel: ObservableObject, Identifiable {
 					receiveValue: { [weak self] location in
 						guard let self = self else { return }
 						self.currentLocation = location
-						self.searchPhotoWithCurrentLocation(location: location)
+						self.loadPhotoWith(location: location, tags: [], at: self.state.page)
 						self.locationFetcher.disable()
 					}
 				)
@@ -60,44 +60,42 @@ class GalleryViewModel: ObservableObject, Identifiable {
 		}
 	}
 	
-	func searchPhotoWithCurrentLocation(location: Location) {
-		searchPhotoWithCurrentLocation(tags: "")
+	func loadPhotoWith(location: Location, tags: [String], at page: Int) {
+		loadMorePhotoWith(location: location, tags: tags, page: page)
 	}
 	
 	func searchPhotoWithCurrentLocationAndTags(tags: String) {
 		DispatchQueue.main.async {
 			self.photoURLs.removeAll()
+			self.state.canLoadNextPage = false
+			self.state.page = 1
 		}
-		searchPhotoWithCurrentLocation(tags: tags)
+		loadMorePhotoWith(location: currentLocation, tags: [tags], page: self.state.page)
 	}
 	
-	private func searchPhotoWithCurrentLocation(tags: String) {
-		photoManager.searchPhotos(tags: [tags], location: self.currentLocation)
-			.map({ result in
-				result.photos.photo
-			})
-			.receive(on: DispatchQueue.main)
-			.sink(
-				receiveCompletion: { value in
-					switch value {
-					case .failure:
-						self.state.canLoadNextPage = false
-						break
-					case .finished:
-						break
-					}
-			},
-				receiveValue: { [weak self] photos in
-					guard let self = self else { return }
-					self.searchResult = photos
-					self.photoURLs = photos.compactMap({ return URL(string: String("https://farm\($0.farm).staticflickr.com/\($0.server)/\($0.id)_\($0.secret)_m.jpg")) })
-					self.state.canLoadNextPage = photos.count > 0
-					self.state.page += 1
-			})
-			.store(in: &disposables)
-	}
-	
-	func fetchNextPageIfPossible() {
-		guard state.canLoadNextPage else { return }
+	private func loadMorePhotoWith(location: Location, tags: [String], page: Int) {
+		photoManager.loadMorePhotos(tags: tags, location: location, page: page)
+		.map({ result in
+			result.photos.photo
+		})
+		.receive(on: DispatchQueue.main)
+		.sink(
+			receiveCompletion: { value in
+				switch value {
+				case .failure:
+					self.state.canLoadNextPage = false
+					break
+				case .finished:
+					break
+				}
+		},
+			receiveValue: { [weak self] photos in
+				guard let self = self else { return }
+				self.searchResult.append(contentsOf:  photos)
+				self.photoURLs.append(contentsOf:  photos.compactMap({ return URL(string: Parser.thumbnailUrlPath(photo: $0)) }))
+				self.state.canLoadNextPage = photos.count > 0
+				self.state.page += 1
+		})
+		.store(in: &disposables)
 	}
 }

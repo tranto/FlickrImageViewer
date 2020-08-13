@@ -9,29 +9,25 @@
 import SwiftUI
 
 struct PreviewView: View {
-	
+	@Environment(\.imageCache) var cache: ImageCache
 	var item: PreviewViewModel
-    var body: some View {
-		VStack(alignment: .leading, spacing: 16.0, content: {
-			Image(uiImage: item.image)
-				.resizable()
-				.renderingMode(.original)
-				.aspectRatio(contentMode: .fit)
-			VStack(alignment: .leading, spacing: 5.0, content: {
-				Text(item.title)
-					.font(.headline)
-					.foregroundColor(.primary)
-				Text("\(item.description)")
-					.foregroundColor(.secondary)
-					.font(.subheadline)
-					.multilineTextAlignment(.leading)
-			})
-		})
-    }
-}
-
-struct PreviewView_Previews: PreviewProvider {
-	static var previews: some View {
-		PreviewView(item: PreviewViewModel(title: "The Sydney Coffee", resolution: "3000 pixels/inch", image: UIImage(named: "placeholder")! , id: "324243", size: "1248 * 1248", postedDate: "2020-08-09"))
+	var body: some View {
+		ZStack(alignment: .bottom, content: {
+			AsyncImage(url: item.original, cache: self.cache,
+					   placeholder: Image("placeholder")  ,
+					   configuration: { $0.resizable() })
+			Rectangle()
+				.frame(height: 80)
+				.opacity(0.25).blur(radius: 10)
+			HStack {
+				VStack(alignment: .leading, spacing: 8.0) {
+					Text(item.title)
+						.font(.largeTitle)
+						.foregroundColor(.white)
+				}.padding(.leading)
+					.padding(.bottom)
+				Spacer()
+			}
+		}).padding(.top)
 	}
 }

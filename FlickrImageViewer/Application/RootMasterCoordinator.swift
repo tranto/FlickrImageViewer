@@ -29,8 +29,8 @@ final class RootMasterCoordinator: MasterCoordinator {
 		return view
     }
 	
-	func coordinatortoPreview(viewModel: PreviewViewModel, isPresented: Binding<Bool>) -> some View {
-		let coordinator = DetailsCoordinator(viewModel: viewModel, isPresented: isPresented)
+	func coordinatortoPreview(photo: Photo, isPresented: Binding<Bool>) -> some View {
+		let coordinator = factory.makePreviewCoordinator(photo: photo, isPresented: isPresented)
 		return coordinate(to: coordinator)
 	}
 }
@@ -49,6 +49,12 @@ final class MasterFactory {
 		let viewModel = GalleryViewModel(locationFetcher: locationFetcher, photoManager: photoManager)
 		let view = GalleryView(viewModel: viewModel, coordinator: coordinator)
         return view
+	}
+	
+	func makePreviewCoordinator(photo: Photo, isPresented: Binding<Bool>) -> PreviewCoordinator {
+		let viewModel = PreviewViewModel(photo: photo, photoManager: photoManager)
+		let coordinator = PreviewCoordinator(viewModel: viewModel, isPresented:  isPresented)
+		return coordinator
 	}
 }
 
