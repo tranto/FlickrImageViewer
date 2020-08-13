@@ -36,6 +36,3 @@
 <img align="left" src="screenshots/Simulator Screen Shot - iPhone 11 - 2020-08-13 at 10.41.21.png" width=200 >
 <img align="left" src="screenshots/Simulator Screen Shot - iPhone 11 - 2020-08-13 at 10.41.29.png" width=200 >
 
-## Author
-
-Tran To, totran0@gmail.com
