@@ -28,6 +28,7 @@
 
 <img align="left" src="screenshots/Simulator Screen Shot - iPad Pro (9.7-inch) - 2020-08-13 at 10.38.13.png" width=200 >
 <img align="left" src="screenshots/Simulator Screen Shot - iPad Pro (9.7-inch) - 2020-08-13 at 10.38.37.png" width=200 >
+<img align="left" src="screenshots/Simulator Screen Shot - iPad Pro (9.7-inch) - 2020-08-13 at 10.38.21.png" width=200 >
 <img align="left" src="screenshots/Simulator Screen Shot - iPad Pro (9.7-inch) - 2020-08-13 at 10.38.22.png" width=200 >
 
 ### iPhone
