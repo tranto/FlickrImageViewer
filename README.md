@@ -21,6 +21,16 @@
 - Combine SDK
 - SwiftUI SDK
 
+## Screeenshots
+![iPad Screenshot](https://photos.app.goo.gl/1rVtKQRHn43Eqndf9)
+
+![Search photos with tags](https://photos.app.goo.gl/Ytxbv79Fiw2PUUog8)
+
+![Search photos with the existing location](https://photos.app.goo.gl/bGkz62rKpXBbwLDc8)
+
+![Seach photos with tags](https://photos.app.goo.gl/pr7e52YpdLVjhd1c7)
+
+![Search result](https://photos.app.goo.gl/UAqmNda6mNS5Qqt78)
 ## Author
 
 Tran To, totran0@gmail.com
