@@ -22,15 +22,15 @@
 - SwiftUI SDK
 
 ## Screeenshots
-![iPad Screenshot](https://photos.app.goo.gl/pYyq4iuYJCCoSay76[](https://photos.app.goo.gl/pYyq4iuYJCCoSay76))
+### iPad
+<img align="left" src="screenshots/Simulator Screen Shot - iPad Pro (9.7-inch) - 2020-08-13 at 10.38.13.png" width=200 >
+<img align="left" src="screenshots/Simulator Screen Shot - iPad Pro (9.7-inch) - 2020-08-13 at 10.38.37.png" width=200 >
 
-![Search photos with tags](https://photos.app.goo.gl/Ytxbv79Fiw2PUUog8)
+### iPhone
+<img align="left" src="screenshots/Simulator Screen Shot - iPhone 11 - 2020-08-13 at 10.41.15.png" width=200 >
+<img align="left" src="screenshots/Simulator Screen Shot - iPhone 11 - 2020-08-13 at 10.41.21.png" width=200 >
+<img align="left" src="screenshots/Simulator Screen Shot - iPhone 11 - 2020-08-13 at 10.41.29.png" width=200 >
 
-![Search photos with the existing location](https://photos.app.goo.gl/bGkz62rKpXBbwLDc8)
-
-![Seach photos with tags](https://photos.app.goo.gl/pr7e52YpdLVjhd1c7)
-
-![Search result](https://photos.app.goo.gl/UAqmNda6mNS5Qqt78)
 ## Author
 
 Tran To, totran0@gmail.com
