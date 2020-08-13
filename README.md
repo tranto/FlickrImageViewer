@@ -22,7 +22,7 @@
 - SwiftUI SDK
 
 ## Screeenshots
-![iPad Screenshot](https://photos.app.goo.gl/1rVtKQRHn43Eqndf9)
+![iPad Screenshot](https://photos.app.goo.gl/pYyq4iuYJCCoSay76[](https://photos.app.goo.gl/pYyq4iuYJCCoSay76))
 
 ![Search photos with tags](https://photos.app.goo.gl/Ytxbv79Fiw2PUUog8)
 
