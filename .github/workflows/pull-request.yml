@@ -6,6 +6,6 @@ jobs:
   assign:
     runs-on: ubuntu-latest
     steps:
-      - uses: tranto/FlickrImageViewer
+      - uses: toshimaru/auto-author-assign@v1.1.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
