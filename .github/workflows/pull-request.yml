@@ -1,11 +1,13 @@
-name: 'Auto Author Assign' 
+name: 'Auto Author Assign'
+
 on:
   pull_request:
     types: [opened, reopened]
+
 jobs:
-  assign:
+  add-assignees:
     runs-on: ubuntu-latest
     steps:
-      - uses: delivery-much/actions-assigner@v1
+      - uses: toshimaru/auto-author-assign@v1.1.0
         with:
-          token: ${{ secrets.GH_TOKEN }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
