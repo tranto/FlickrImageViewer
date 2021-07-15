@@ -23,7 +23,7 @@ class ParserTests: XCTestCase {
 		let reponse = try decoder.decode(SearchPhotoResponse.self, from: dataReponse!)
 		XCTAssertEqual(reponse.stat, "ok")
 		XCTAssertEqual(reponse.photos.page, 1)
-		XCTAssertEqual(reponse.photos.total, "28013")
+		XCTAssertEqual(reponse.photos.total, 28013)
     }
 
 	func testParserThumbnailUrlPath() {
